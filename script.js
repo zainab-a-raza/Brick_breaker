@@ -14,8 +14,9 @@ const lost = document.getElementById('lose')
 const intro = document.getElementById('intro')
 const start = document.getElementById('start')
 const wall = document.getElementById('bricks')
-const cloud = document.getElementById('cloud')
 const restart = document.getElementById('restart')
+const bg= document.getElementById('bg')
+
 
 for(let i=0;i<rows;i++){
     bricks[i] = []; 
@@ -164,11 +165,6 @@ function gameover(){
         ctx.font ='60px Arial'
         ctx.fillStyle = 'black'
         ctx.drawImage(lost,280,200,350,200)
-        ctx.drawImage(wall,0,600,900,150)
-        ctx.drawImage(cloud,90,60,90,30)
-        ctx.drawImage(cloud,350,30,70,30)
-        ctx.drawImage(cloud,550,80,70,30)
-        ctx.drawImage(cloud,750,30,70,30)
         ctx.drawImage(restart,370,420,180,60)
         gameoff =true;
         document.addEventListener('click',restartgame);
@@ -179,11 +175,6 @@ function wincheck(){
     if(score === rows*columns){
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.drawImage(win,280,200,350,200)
-        ctx.drawImage(wall,0,600,900,150)
-        ctx.drawImage(cloud,90,60,90,30)
-        ctx.drawImage(cloud,350,30,70,30)
-        ctx.drawImage(cloud,550,80,70,30)
-        ctx.drawImage(cloud,750,30,70,30)
         ctx.drawImage(restart,370,420,180,60)
         gameoff =true;
         document.addEventListener('click',reload);
@@ -196,7 +187,7 @@ function reload(){
 
 function displayscore(){
     ctx.font ='24px Arial'
-    ctx.fillStyle = '#5E1C05'
+    ctx.fillStyle = 'rgb(255, 255, 255)'
     ctx.fillText("Score: " + score,15,750)
 }
 
@@ -204,6 +195,7 @@ function update(){
     if (gameoff) return;
     document.removeEventListener('click',startgame);
     ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.drawImage(bg,0,0,900,800)
     displayscore();
     displaybrick();
     displaypaddle();
@@ -228,16 +220,13 @@ if(gameoff=== false){
     ctx.font ='60px Arial'
     ctx.fillStyle = 'Black'
     ctx.drawImage(intro,290,150,300,200)
-    ctx.drawImage(start,370,380,170,60)
-    ctx.drawImage(wall,0,600,900,150)
-    ctx.drawImage(cloud,90,60,90,30)
-    ctx.drawImage(cloud,350,30,70,30)
-    ctx.drawImage(cloud,550,80,70,30)
-    ctx.drawImage(cloud,750,30,70,30)
+    ctx.drawImage(start,350,380,170,60)
+
+
 
 
 function startgame(e){
-    if (gameoff===false && (e.offsetX>=370 && e.offsetX<=370+170  && e.offsetY >= 380 && e.offsetY<=380+60)){
+    if (gameoff===false && (e.offsetX>=350 && e.offsetX<=350+170  && e.offsetY >= 380 && e.offsetY<=380+60)){
         update()
     }    
 }
