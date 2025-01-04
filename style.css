@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#canvas{
+    background:rgb(255, 234, 221);
+    border-radius:5px ;
+}
+
+#source{
+    display: none;
+}
+
+#paddlepng{
+    display: none;
+}
+#lose, #win, #intro, #start, #bricks, #cloud, #restart{
+    display: none;
+}
