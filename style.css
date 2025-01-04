@@ -10,7 +10,7 @@ body{
 }
 
 #canvas{
-    background:rgb(255, 234, 221);
+    background-image: url("gamebg.png");
     border-radius:5px ;
 }
 
